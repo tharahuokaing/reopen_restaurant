@@ -1,72 +1,95 @@
-/* រៀបចំទំព័រទូទៅ */
+/* ==========================================================================
+   1. ការកំណត់ទូទៅ និងផ្ទៃខាងក្រោយ (Global Styles & Background)
+   ========================================================================== */
 body {
     margin: 0;
     padding: 0;
-    background-color: #0b0c10;
-    font-family: 'Khmer OS Siemreap', sans-serif;
+    background-color: #0b0c10; /* ពណ៌ខ្មៅស្រអាប់ បែបប្រណីត */
+    font-family: 'Khmer OS Siemreap', 'Segoe UI', sans-serif;
     color: #ffffff;
-    overflow: hidden;
+    overflow: hidden; /* លាក់ Scrollbar ដើម្បីកុំឱ្យរំខានពេលកាំជ្រួចផ្ទុះ */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-/* កំណត់ទំហំ Canvas ឱ្យពេញអេក្រង់ */
+/* កំណត់ឱ្យ Canvas រត់ពេញអេក្រង់ និងនៅខាងក្រោយអក្សរ */
 #fireworksCanvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 1; /* នៅស្រទាប់ខាងក្រោម */
 }
 
-/* ប្រអប់ផ្ទុកអត្ថបទ */
+/* ==========================================================================
+   2. ប្រអប់ផ្ទុកខ្លឹមសារកណ្តាល (Content Container)
+   ========================================================================== */
 .container {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* នៅស្រទាប់ខាងលើ Canvas ដើម្បីកុំឱ្យកាំជ្រួចបាំងអក្សរ */
     text-align: center;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 40px;
+    background: rgba(0, 0, 0, 0.65); /* ពណ៌ខ្មៅថ្លាអាចមើលធ្លុះទៅក្រោយបាន */
+    padding: 40px 60px;
     border-radius: 15px;
     border: 2px solid #1f2833;
-    box-shadow: 0 0 20px rgba(102, 252, 241, 0.2);
+    box-shadow: 0 0 25px rgba(255, 189, 89, 0.2); /* ពន្លឺចាំងៗជុំវិញប្រអប់ */
+    backdrop-filter: blur(5px); /* ធ្វើឱ្យផ្ទៃខាងក្រោយប្រអប់រាងព្រិល បង្កើនភាពធ្លោ */
 }
 
+/* ==========================================================================
+   3. ការរចនាអក្សរ (Typography)
+   ========================================================================== */
 h1 {
     font-size: 24px;
-    color: #c5a880; /* ពណ៌មាសស្រាល */
+    font-weight: 400;
+    color: #c5a880; /* ពណ៌មាសកូនកាត់ប្រាក់ (Champagne Gold) */
+    margin: 0;
+    letter-spacing: 1px;
 }
 
 .restaurant-name {
-    font-size: 40px;
-    color: #ffbd59;
-    margin: 10px 0;
-    text-shadow: 0 0 10px rgba(255, 189, 89, 0.5);
+    font-size: 45px;
+    font-weight: bold;
+    color: #ffbd59; /* ពណ៌មាសភ្លឺ */
+    margin: 15px 0;
+    text-shadow: 0 0 15px rgba(255, 189, 89, 0.6); /* ធ្វើឱ្យអក្សរមានពន្លឺព្រិលៗ */
 }
 
 .celebration-text {
     font-size: 18px;
-    margin-bottom: 30px;
     color: #e5e5e5;
+    margin-bottom: 35px;
 }
 
-/* ប៊ូតុងសាកល្បង */
+/* ==========================================================================
+   4. ការរចនាប៊ូតុង (Button Style & Animation)
+   ========================================================================== */
 button {
     background-color: #ffbd59;
-    color: #111;
+    color: #111111;
     border: none;
-    padding: 12px 25px;
+    padding: 14px 32px;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 25px;
+    font-family: 'Khmer OS Siemreap', sans-serif;
+    border-radius: 30px;
     cursor: pointer;
-    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease; /* ធ្វើឱ្យបម្រែបម្រួលដើររលូន */
 }
 
+/* នៅពេលយកកណ្តុរទៅដាក់លើប៊ូតុង (Hover Effect) */
 button:hover {
     background-color: #ffffff;
-    box-shadow: 0 0 15px #ffbd59;
-    transform: scale(1.05);
+    color: #ffbd59;
+    box-shadow: 0 0 20px #ffbd59;
+    transform: translateY(-3px) scale(1.03); /* រំកិលឡើងលើបន្តិច និងរីកធំបន្តិច */
+}
+
+/* នៅពេលចុចលើប៊ូតុង (Active Effect) */
+button:active {
+    transform: translateY(-1px) scale(1);
 }
